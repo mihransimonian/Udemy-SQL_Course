@@ -1,5 +1,11 @@
 # URL links
 Course Details.txt
-# Course files
-Chapter 2 - Sales.bak
-Scripts.zip
+
+# Course Files - all
+/Course Files
+
+# Course files - Databases
+/Course Files/Database
+
+# Course files - Example Scripts
+/Course Files/Example Scripts
