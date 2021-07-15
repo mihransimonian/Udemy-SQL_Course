@@ -15,7 +15,7 @@ FROM
 -- This results in too much data, but gives us some hints to what to do next. Too much data gives no insight, so let's break it further down.
 
 
--- TIP: Do not tacle complete question in one go, break problem down in parts before you continue --
+-- TIP: Do not tackle complete question in one go, break problem down in parts before you continue --
 
 
 -- Step 1: decide fields of interest and isolate them
@@ -31,11 +31,11 @@ FROM
 -- Step 2: Calculate fields of interest
 SELECT
 	AVG([YearlyIncome]) AS [YearlyIncome] -- Income, but also set the column name
-	,[EducationLevel] -- Education 
-	,[Gender] -- Gender
+	,[EducationLevel]
+	,[Gender]
 FROM
 	[dbo].[Customer]
-GROUP BY -- We have to use this when we apply a calculation
+GROUP BY -- Add a GROUPBY to return calculation per sub-group
 	[EducationLevel]
 	,[Gender]
 
@@ -43,31 +43,31 @@ GROUP BY -- We have to use this when we apply a calculation
 -- Let's focus on the presentation, sorting becomes important
 -- Step 3: Sorting by ORDER BY
 SELECT
-	AVG([YearlyIncome]) AS [YearlyIncome] -- Income, but also set the column name
-	,[EducationLevel] -- Education 
-	,[Gender] -- Gender
+	AVG([YearlyIncome]) AS [YearlyIncome]
+	,[EducationLevel]
+	,[Gender]
 FROM
 	[dbo].[Customer]
-GROUP BY -- We have to use this when we apply a calculation
+GROUP BY
 	[EducationLevel]
 	,[Gender]
-ORDER BY -- Sorting
+ORDER BY -- Sorting data using ORDER BY
 	[YearlyIncome]
 
 
 -- Just add a touch of detail
 -- Step 4: Make it a descending sorting
 SELECT
-	AVG([YearlyIncome]) AS [YearlyIncome] -- Income, but also set the column name
-	,[EducationLevel] -- Education 
-	,[Gender] -- Gender
+	AVG([YearlyIncome]) AS [YearlyIncome]
+	,[EducationLevel]
+	,[Gender]
 FROM
 	[dbo].[Customer]
-GROUP BY -- We have to use this when we apply a calculation
+GROUP BY
 	[EducationLevel]
 	,[Gender]
-ORDER BY -- Sorting
-	[YearlyIncome] DESC
+ORDER BY
+	[YearlyIncome] DESC -- Sorting Descending
 
 
 
@@ -78,7 +78,7 @@ SELECT
 	,[Gender]
 FROM
 	[dbo].[Customer]
-GROUP BY ROLLUP ([EducationLevel] ,[Gender])
+GROUP BY ROLLUP ([EducationLevel] ,[Gender]) -- Calculation executed per individual group
 
 
 
@@ -100,17 +100,17 @@ GROUP BY ROLLUP ([EducationLevel] ,[Gender])
 
 -- Introducing HAVING, used when filtering within your subgroups
 SELECT
-	AVG([YearlyIncome]) AS [YearlyIncome] -- Income, but also set the column name
-	,[EducationLevel] -- Education 
-	,[Gender] -- Gender
+	AVG([YearlyIncome]) AS [YearlyIncome]
+	,[EducationLevel]
+	,[Gender]
 FROM
 	[dbo].[Customer]
-GROUP BY -- We have to use this when we apply a calculation
+GROUP BY
 	[EducationLevel]
 	,[Gender]
-HAVING
+HAVING -- Filtering using Having
 	[EducationLevel] = 'Graduate Degree'
-ORDER BY -- Sorting
+ORDER BY
 	[YearlyIncome] DESC
 
 
@@ -133,7 +133,7 @@ ORDER BY -- Sorting
 
 	-- Step 2: Calculate and think about variable presentation (as....)
 	SELECT 
-		 AVG([NumberChildrenAtHome]) as [NumberChildrenAtHome]
+		 AVG([NumberChildrenAtHome]) AS [NumberChildrenAtHome] -- Presentation (as...)
 		,[MaritalStatus]
 	FROM
 		[dbo].[Customer]
@@ -156,9 +156,10 @@ ORDER BY -- Sorting
 	FROM
 		[dbo].[Customer]
 
+
 	-- Step 2: Calculate and think about variable presentation (as....)
 	SELECT
-		 AVG([YearlyIncome]) AS [YearlyIncome]
+		 AVG([YearlyIncome]) AS [YearlyIncome] -- Presentation (as...)
 		,[Gender]
 		,[EducationLevel]
 	FROM
@@ -166,6 +167,7 @@ ORDER BY -- Sorting
 	GROUP BY
 		 [Gender]
 		,[EducationLevel]
+
 
 	-- Step 3: Zoom in further and apply filtration to the new sub data to come up with a direct answer
 	SELECT
