@@ -22,10 +22,10 @@ FROM
 
 /*
 	A CROSS JOIN is not your normal JOIN and takes up A LOT of computational resources
-	It's result is a MATRIX Multiplication, and can be useful for very specific situations.
-	The CARTESIAN product is important here to be aware of.
+	It's result is a MATRIX Multiplication, and can be useful for very specific situations
+	The CARTESIAN product is important here to be aware of
 	Again, very heavy for your computer and you should use it only with caution!
-	I will just upload the command to do a CROSS JOIN, just to demonstrate the effect.
+	I will just upload the command to do a CROSS JOIN, just to demonstrate the effect
 */
 
 
@@ -45,5 +45,5 @@ FROM
 	The original FULL OUTER JOIN had:
 	Duration: 0m 0s
 	Rows: 18.805 rows
-	The use of CROSS JOIN can be lead to server problems, so use with caution.
+	The use of CROSS JOIN can lead to server problems, so use with caution
 */
