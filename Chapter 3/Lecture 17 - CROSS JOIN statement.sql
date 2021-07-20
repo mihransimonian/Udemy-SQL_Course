@@ -22,8 +22,8 @@ FROM
 
 /*
 	A CROSS JOIN is not your normal JOIN and takes up A LOT of computational resources
-	It's result is a MATRIX Multiplication, and can be useful for very specific situations
-	The CARTESIAN product is important here to be aware of
+	The CARTESIAN product is important here to be aware of, as it describes the eventual product (multiply each entry with each entry). 
+	It's result can be seen as a sort of MATRIX Multiplication (not exactly the same, but it sort of indicates how large everything becomes), and CROSS JOIN can be useful for very specific situations
 	Again, very heavy for your computer and you should use it only with caution!
 	I will just upload the command to do a CROSS JOIN, just to demonstrate the effect
 */
