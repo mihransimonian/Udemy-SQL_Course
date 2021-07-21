@@ -1,5 +1,5 @@
 /*
-Description: 
+	Description: 
 	This file is used with the video from chapter 4, class 21
 	Commands are ran per individual selected code section, so not intended to run all at once.
 */
@@ -30,7 +30,7 @@ If we breakdown the question;
 	- Group by age groups
 	- Filter on the year 2014
 
-- What is unclear is, what do they mean, the mean PER CUSTOMER, or the mean PER TRANSACTION. I will comment the code accordingly
+- What is unclear is, what do they mean, the mean 'per total customers', or the mean 'per customer whom received a payout'. I will comment the code accordingly
 
 So, what do we need?
 	- Age
@@ -230,7 +230,7 @@ SELECT
 	,AVG([total_tpd_cover_premium])		AS [TotalTPDCoverPremium]
 FROM
 	[dbo].[MemberCover] AS [tbl_membercover] INNER JOIN
-	[dbo].[Member] AS [tbl_member]
+	[dbo].[Member]		AS [tbl_member]
 	ON [tbl_membercover].[MemberKey] = [tbl_member].[MemberKey]
 WHERE
 	[tbl_membercover].[underwriting_year] = 2014
