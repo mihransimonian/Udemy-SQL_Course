@@ -106,6 +106,10 @@ FROM
 	-- This is just one number, which counts all the unique occupations in our member list
 
 
+-- Just to demonstrate the DISTINCT function
+SELECT DISTINCT([occupation]) FROM [dbo].[Member]
+-- This returns a list of all unique values in the parameter/column: occupations
+
 
 -- Question: Supply a list of duplicated member biz keys --
 	SELECT
@@ -132,6 +136,7 @@ FROM
 		COUNT([member_biz_key]) > 1 -- We need to repeat the function (!)
 	ORDER BY
 		[member_biz_key] -- Notice we use a different column now, as we already filtered the 1
+
 
 
 
